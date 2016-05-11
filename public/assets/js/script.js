@@ -6,7 +6,7 @@ var Steps = {}
 
 Steps.init = function() {
   this.buildParseUrl();
-  this.bindBtn('#step-1-btn', function(e){
+  this.bindBtn('#step-3-btn', function(e){
     ParseRequest.postData();
     e.preventDefault();
   })
