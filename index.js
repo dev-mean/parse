@@ -35,6 +35,16 @@ var dashboard = new ParseDashboard({
       "masterKey": "tufy1ADCME9NwRKWQTjDZnrIX8QAcx481BeDJPfm",
       "appName": "MyApp"
     }
+  ],
+"users": [
+    {
+      "user":"user1",
+      "pass":"pass"
+    },
+    {
+      "user":"user2",
+      "pass":"pass"
+    }
   ]
 });
 // make the Parse Dashboard available at /dashboard
