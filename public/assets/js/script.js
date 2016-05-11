@@ -91,7 +91,7 @@ ParseRequest.postCloudCodeData = function() {
     // open third step
     Steps.showWorkingMessage();
   });
-  XHR.POST('/parse/functions/getAllNotificationCounts');
+  XHR.POST1('/parse/functions/getAllNotificationCounts');
 }
 
 
@@ -129,7 +129,14 @@ XHR.setCallback = function(callback) {
     }
   };
 }
-
+XHR.POST1 = function(path, callback) {
+  
+  this.xhttp.open("GET", Config.getUrl() + path, true);
+  this.xhttp.setRequestHeader("X-Parse-Application-Id", "EwDTpTzNekoca5yA7VUW6I6gdbS2Y4sOBJ2NitMq");
+  this.xhttp.setRequestHeader("X-Parse-Master-Key", "tufy1ADCME9NwRKWQTjDZnrIX8QAcx481BeDJPfm");
+  this.xhttp.setRequestHeader("Content-type", "application/json");
+  this.xhttp.send(null);
+}
 XHR.POST = function(path, callback) {
   var seed = {"score":1337,"playerName":"Sean Plott","cheatMode":false}
   this.xhttp.open("POST", Config.getUrl() + path, true);
