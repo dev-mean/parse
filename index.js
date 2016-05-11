@@ -2,6 +2,7 @@
 // compatible API routes.
 
 var express = require('express');
+var ParseDashboard = require('parse-dashboard');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
@@ -26,7 +27,18 @@ var api = new ParseServer({
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
 var app = express();
-
+var dashboard = new ParseDashboard({
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "EwDTpTzNekoca5yA7VUW6I6gdbS2Y4sOBJ2NitMq",
+      "masterKey": "tufy1ADCME9NwRKWQTjDZnrIX8QAcx481BeDJPfm",
+      "appName": "MyApp"
+    }
+  ]
+});
+// make the Parse Dashboard available at /dashboard
+app.use('/dashboard', dashboard);
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
